@@ -1,0 +1,15 @@
+#GlPI 
+version: '3.0'
+
+services:
+  glpi:
+    container_name: "glpi"
+    image: "nsoporte/glpi:9.5.1"
+    network_mode: "bridge"
+    restart: "always"
+    ports:
+      - "80:80"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/etc/glpi:/var/www/html/config"
+      - "data/var/glpi/files:/var/www/html/config"
